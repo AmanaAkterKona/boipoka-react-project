@@ -4,8 +4,9 @@ import { useLoaderData, useParams } from 'react-router';
 import { addToStoredDB } from '../../utility/addToDB';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-
 const MySwal = withReactContent(Swal)
+
+ import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -26,11 +27,15 @@ const handleMarkAsRead= id =>{
    //array or collection
    //if book already exist the show a alart
    // if book not exist then push in the collection or array
-    MySwal.fire({
-  title: "Good job!",
-  text: "You clicked the button!",
-  icon: "success"
-});
+
+
+//     MySwal.fire({
+//   title: "Good job!",
+//   text: "You clicked the button!",
+//   icon: "success"
+// });
+
+toast("Wow so easy!");
 
    addToStoredDB(id)
 }
@@ -44,6 +49,7 @@ const handleMarkAsRead= id =>{
     
     <div className="w-1/2 flex flex-col p-25">
       <h2 className="font-bold text-3xl mb-2">{bookName}</h2>
+      <ToastContainer />
       <h4 className="font-normal mb-4">By : {author}</h4>
 
       <div className="divider divider-start"></div>
